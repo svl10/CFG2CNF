@@ -39,20 +39,19 @@ def addtupes(tupes:list):
             productions.append(hold)
         print(productions)
         
-        for x in productions:
-            for y in x[1]:
-                for z in list(y):
-                    if z in terminals or z in nonterm:
-                        a = 1
-                        continue
-                    elif z == 'e':
-                        a = 1
-                    else:
-                        a = 0
-                        break
-            if a == 0:
-                print(f"Some values in {y} in not found in the non-terminals/terminals")
-                break
+        for x, y in productions:
+            for z in list(y):
+                if z in terminals or z in nonterm:
+                    a = 1
+                    continue
+                elif z == 'e':
+                    a = 1
+                else:
+                    a = 0
+                    break
+        if a == 0:
+            print(f"Some values in {y} in not found in the non-terminals/terminals")
+            continue
         
         if a == 1:
             break
