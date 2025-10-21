@@ -1,9 +1,20 @@
-# 'e' is reserve para epsilon
+# 'e' is reserved for epsilon
 #First variable is the starting non-terminalS
 #CNF rules, S -> ε, A -> AB, A -> a
 #New start symbol $
 
 def addtupes(tupes:list):
+
+
+    """ Create a list that contains terminals, non-terminals, and its productions.
+
+    Args:
+        tupes (list): Empty list.
+
+    Returns:
+        A list containing terminals, non-terminals, and its productions.
+
+    """
 
     nonterm = list(dict.fromkeys((input("Input non-terminals (First variable is the starting non-terminal):  ").replace(" ", "").upper())))
     print("non-terminals: ", nonterm)
@@ -64,6 +75,16 @@ def addtupes(tupes:list):
     return tupes
 
 def step1(tupes): #Eliminate start symbol from RHS
+    """ Eliminates the start symbol from the Right Hand Side of Context Free Grammar.
+
+    Args:
+        A list that contains non-terminals, terminals, and productions.
+
+    Returns:
+        A list that contains non-terminal, terminals, and productions without the start symbol from right hand side.
+
+    """
+
     nonterm = tupes[0]
     strt = tupes[0][0][0]
     prod = tupes[3]
